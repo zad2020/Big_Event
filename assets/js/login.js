@@ -36,19 +36,17 @@ $(function(){
 
     //监听注册表单的提交事件
     $('#form_reg').on('submit',function(e){
-    // 阻止表单的默认提交行为
-    e.preventDefault();
-    // 发起Ajax的post请求
-    var data = {username: $('#form_reg [name=username]').val(), password: $('#form_reg [name=password]').val()};
-    $.post('/api/reguser', data ,function(res){
-        if(res.status !== 0){
-            return layer.msg(res.message);
-        }
-        layer.msg('注册成功,请登录!');
-        //模拟点击行为
-        $('#link_login').click();
+        // 阻止表单的默认提交行为
+        e.preventDefault();
+        // 发起Ajax的post请求
+        var data = {username: $('#form_reg [name=username]').val(), password: $('#form_reg [name=password]').val()};
+        $.post('/api/reguser', data ,function(res){
+            if(res.status !== 0){return layer.msg(res.message);}
+            layer.msg('注册成功,请登录!');
+            //模拟点击行为
+            $('#link_login').click();
+        })
     })
-})
     //监听登录表单的提交事件
     $('#form_login').on('submit',function(e){
         // 阻止表单的默认提交行为
