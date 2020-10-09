@@ -1,6 +1,7 @@
+    getUserInfo();
 $(function () {
     //调用这个函数获取用户基本信息
-    getUserInfo();
+    
     var layer = layui.layer
 
     // 点击按钮，实现退出功能
